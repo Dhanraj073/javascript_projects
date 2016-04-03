@@ -1,0 +1,41 @@
+<html>
+<head>
+<title> Simple guessing game!</title>
+</head>
+<body onload="do_game()">
+<script>
+var target;
+var guess_input_text;
+var guess_input;
+var finished=false;
+var guesses=0;
+
+function myfun(){
+	for(i=0;i<colors.length;i++)
+		if(colors[i]==guess_input)
+			return false;
+
+	return true;
+}
+function do_game()
+{
+	colors=["aqua", "black", "cyan", "fuchsia","gold","indigo","lime","maroon","navy","olive","pink","red","snow","teal","yellow" ];
+	var rand=Math.random()* colors.length;
+	rand=Math.floor(rand);
+	target=colors[rand];
+	alert(target);
+	//document.write(target);
+	while(!finished)
+	{
+		guess_input_text=prompt("I am thinking of one of these colors\n\n" + colors.join("  ") + " \n\nWhat color am I thinking of?\n\n");
+		guess_input=guess_input_text;
+	//	document.write(guess_input);
+		guesses+=1;
+		if(target==guess_input)
+		alert("Congratulations! You have guessed the color!\n\n"+ "It took you "+guesses +" guesses to finish the game!\n\n" + "You can see the color in the background\n\n");
+	}
+}
+
+</script>
+</body>
+</html>
